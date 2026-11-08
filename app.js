@@ -13,4 +13,6 @@ function calc(){let rights=+document.querySelector('#rights').value,margin=+docu
 document.querySelectorAll('[data-lag]').forEach(b=>b.onclick=()=>{document.querySelector('#lag-result').textContent=b.dataset.lag==='fast'?'지연 3초 가정: 알림보다 먼저 볼 가능성이 커지지만, 짧은 버퍼는 네트워크 흔들림에 더 민감할 수 있습니다.':'지연 25초 가정: 재생 여유는 생기지만, 친구의 “골!” 메시지가 영상보다 먼저 도착할 수 있습니다.'});
 document.querySelector('#discussion').onclick=()=>{document.querySelector('#discussion-guide').hidden=!document.querySelector('#discussion-guide').hidden};
 document.querySelectorAll('a[href="#sources"]').forEach(a=>a.addEventListener('click',()=>{document.querySelector('#sources').open=true}));
+const motionToggle=document.querySelector('#motion-toggle');
+if(motionToggle){motionToggle.onclick=()=>{const paused=document.querySelector('.hero').classList.toggle('motion-paused');motionToggle.setAttribute('aria-pressed',String(paused));motionToggle.textContent=paused?'사진 움직임 재생':'사진 움직임 멈추기'};}
 

@@ -1,5 +1,11 @@
 # 스포츠 미디어 × OTT
 
+디자인 개정: Telescope 편집 스타일. 57px 표지 제목, 사진 중심의 전면 구성, 확대·이동하는 표지 사진(정지 가능), 56px 하단 탐색. 움직임 줄이기 설정을 존중합니다.
+
+표지 `assets/action.jpg`: All-Pro Reels, Jacob Young dunk (2020-12-14), CC BY-SA 2.0. 축소·압축 및 표시 영역 자르기와 확대·이동 효과를 적용했습니다. 수정 사진도 동일 라이선스입니다.
+https://commons.wikimedia.org/wiki/File:Jacob_Young_dunk_(50731310101).jpg
+https://creativecommons.org/licenses/by-sa/2.0/
+
 대학교 4학년 전공수업용 50분 인터랙티브 HTML 강의자료입니다.
 
 ## 사용
