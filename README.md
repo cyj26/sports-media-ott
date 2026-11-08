@@ -1,43 +1,36 @@
-# 스포츠 미디어 × OTT
+# 스포츠 미디어 / THE OTT FIELD GUIDE
 
-디자인 개정: Telescope 편집 스타일. 57px 표지 제목, 사진 중심의 전면 구성, 확대·이동하는 표지 사진(정지 가능), 56px 하단 탐색. 움직임 줄이기 설정을 존중합니다.
+대학교 4학년 전공수업용 20개 장, 50분 HTML 강의.
 
-표지 `assets/action.jpg`: All-Pro Reels, Jacob Young dunk (2020-12-14), CC BY-SA 2.0. 축소·압축 및 표시 영역 자르기와 확대·이동 효과를 적용했습니다. 수정 사진도 동일 라이선스입니다.
-https://commons.wikimedia.org/wiki/File:Jacob_Young_dunk_(50731310101).jpg
-https://creativecommons.org/licenses/by-sa/2.0/
+공개 주소: https://cyj26.github.io/sports-media-ott/
 
-대학교 4학년 전공수업용 50분 인터랙티브 HTML 강의자료입니다.
+## 화면과 사용법
 
-## 사용
+San Rita 참고 디자인의 사진 위 대형 제목, 민트(#e2ffcc)·카본(#161b13) 대비, 밝고 어두운 화면의 교차, 기울어진 사진 묶음을 수업에 적용했습니다. 기존 Telescope 스타일을 대체합니다.
 
-`index.html`을 열거나 GitHub Pages 주소에 접속하세요. 같은 폴더의 `style.css`, `app.js`, `assets`가 필요합니다. 웹 글꼴은 인터넷 연결이 필요하며, 연결되지 않아도 대체 글꼴로 읽을 수 있습니다.
+- 강의 모드: 한 장씩 표시. 하단 화살표 또는 키보드 좌우/PageUp/PageDown으로 이동합니다.
+- 상단 목차에서 20개 장을 선택합니다.
+- 전체 읽기: 학생 복습용 연속 문서.
+- 해설: 현재 장의 교수자 해설.
+- 모션 정지: 사진 확대·이동 정지. 운영체제 움직임 줄이기 설정도 존중합니다.
+- 타이머, 손익 실습, 지연 상황 비교, 계약 선택, 퀴즈를 포함합니다. 입력은 서버로 전송하지 않습니다.
 
-- 20개 장, 총 50분. 화면 하단에서 장 이동, 경과 시간, 전체화면, 읽기 모드를 선택합니다.
-- 손익분기점 계산, 지연 상황 비교, 확인 퀴즈, 계약 협상 토론을 포함합니다.
-- 교수자 해설은 각 장의 펼치기 메뉴에서 확인합니다.
-- 마지막 장의 출처에서 공식 자료, 사진 이용 조건, 기존 자료 반영 내역을 확인합니다.
-- 사진은 일반 스포츠 자료 사진이며 특정 OTT의 중계 장면이 아닙니다.
-- 실습 숫자는 표시된 계약 금액 외에는 교육용 가정입니다.
-- 응답은 서버에 전송하거나 저장하지 않습니다.
+## 파일
 
-## 수업 흐름
+index.html, cinema.css, cinema.js, assets/ 폴더를 함께 보관하세요. 글꼴은 인터넷에서 로드되며 실패 시 대체 글꼴을 사용합니다.
 
-00–12분 OTT 개념·전달·수익모델 / 12–22분 산업·플랫폼·스포츠 / 22–35분 권리·사례·손익 / 35–45분 팬 경험·공공성·토론 / 45–50분 퀴즈·정리.
+## 시각 자료
 
-## 출처와 권리
+전달 구조, 수익 흐름, 플랫폼 연결도, 권리 범위, KBO 계약 연평균 환산 그래프, 유지기간별 필요 가입자 그래프, 성과 흐름, 지연시간 비교 등을 포함합니다. KBO 3년 1,350억 원 외 실습 숫자는 가정입니다. 연도별 450억 원 그래프는 연평균 환산으로 실제 지급 일정이 아닙니다.
 
-기준일 2026-11-08. 공식 출처 링크는 강의 마지막 장에 있습니다. 원본 강의 PDF는 배포하지 않습니다.
+사진은 자료 사진이며 특정 OTT의 중계 화면이 아닙니다. 공식 출처와 사진의 원본 링크·라이선스는 웹페이지 마지막 장의 출처에 포함됩니다.
 
-`assets/stadium.jpg`: Pioneerhj, Gwangju Baseball Stadium Panorama (2013), Wikimedia Commons, CC BY-SA 3.0. 축소·압축했으며 표시 영역이 잘릴 수 있습니다. 수정된 사진 역시 CC BY-SA 3.0으로 제공합니다.
+- stadium.jpg — Pioneerhj, Gwangju Baseball Stadium Panorama, 2013, CC BY-SA 3.0
+- basketball.jpg — Samson Ssemakadde, Basketball sport, CC0
+- action.jpg — All-Pro Reels, Jacob Young dunk, 2020, CC BY-SA 2.0
+- camera.jpg — J. Glover, Atlanta, Georgia, TVCamera-Sideline-Action, 2007, CC BY-SA 3.0
+- night.jpg — Matthew Nichols, Vaught-Hemingway Stadium, 2019, CC BY 2.0
 
-https://commons.wikimedia.org/wiki/File:Gwangju_Baseball_Stadium_Panorama.jpg
+사진에 해상도 축소·압축·표시 영역 자르기와 일부 확대·이동 효과를 적용했습니다. 수정된 사진은 각 원본과 동일한 라이선스로 제공합니다. 강의 원본 PDF는 공개하지 않습니다.
 
-https://creativecommons.org/licenses/by-sa/3.0/
-
-`assets/basketball.jpg`: Samson Ssemakadde, Basketball sport, Wikimedia Commons, CC0 1.0. 축소·압축했으며 표시 영역이 잘릴 수 있습니다.
-
-https://commons.wikimedia.org/wiki/File:Basketball_sport.jpg
-
-https://creativecommons.org/publicdomain/zero/1.0/
-
-사진의 라이선스는 해당 사진에 적용됩니다. 다른 강의 텍스트·코드 전체에 자동으로 적용되는 라이선스는 아닙니다.
+내용 확인일: 2026-11-08.
