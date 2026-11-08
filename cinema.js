@@ -56,3 +56,23 @@ const officialDemos=[...document.querySelectorAll('.service-demo')];
 function syncOfficialDemos(){const blocked=document.body.classList.contains('motion-off')||document.hidden||!!document.querySelector('dialog[open]')||matchMedia('(prefers-reduced-motion: reduce)').matches;officialDemos.forEach(v=>{const r=v.getBoundingClientRect(),visible=document.body.classList.contains('reading')?r.top<innerHeight&&r.bottom>70:v.closest('.slide').classList.contains('active');const play=visible&&!blocked&&v.dataset.manualPause!=='true';v.muted=true;if(play&&v.paused)v.play().catch(()=>{v.closest('figure').querySelector('[data-demo-toggle]').textContent='시연 재생 ▶'});else if(!play&&!v.paused)v.pause();v.closest('figure').querySelector('[data-demo-toggle]').textContent=play?'시연 정지 Ⅱ':'시연 재생 ▶';});}
 document.querySelectorAll('[data-demo-toggle]').forEach(b=>b.onclick=()=>{const v=b.closest('figure').querySelector('video');if(!v.paused){v.dataset.manualPause='true';v.pause();b.textContent='시연 재생 ▶';}else{v.dataset.manualPause='false';if(document.body.classList.contains('motion-off'))document.querySelector('#motion').click();v.muted=true;v.play().then(()=>b.textContent='시연 정지 Ⅱ').catch(()=>b.textContent='시연 재생 ▶');}});
 document.addEventListener('lecturechange',syncOfficialDemos);document.addEventListener('visibilitychange',syncOfficialDemos);document.querySelector('#motion').addEventListener('click',syncOfficialDemos);document.querySelector('#reading').addEventListener('click',syncOfficialDemos);new MutationObserver(syncOfficialDemos).observe(document.body,{attributes:true,subtree:true,attributeFilter:['class','open']});addEventListener('scroll',syncOfficialDemos,{passive:true});matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',syncOfficialDemos);syncOfficialDemos();
+// Evidence selectors keep the image, interpretation and source together.
+document.querySelectorAll('[data-panel]').forEach(button=>button.addEventListener('click',()=>{
+  const gallery=button.closest('.teaching-gallery');
+  gallery.querySelectorAll('[data-panel]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+  gallery.querySelectorAll('.gallery-panel').forEach(p=>p.hidden=p.id!==button.dataset.panel);
+}));
+const proposalForm=document.getElementById('proposal-form');
+proposalForm?.addEventListener('submit',event=>{
+ event.preventDefault();
+ const value=id=>document.getElementById(id).value.trim();
+ const condition=value('proposal-condition'),reason=value('proposal-reason'),tradeoff=value('proposal-tradeoff'),metric=value('proposal-metric');
+ const output=document.getElementById('proposal-output');
+ if(!condition||!reason||!tradeoff||!metric){output.textContent='공백만 입력한 항목이 있습니다. 네 항목을 모두 구체적으로 작성해 주세요.';return;}
+ output.textContent='협상 기반: '+value('proposal-base')+'\n요구 조건: '+condition+'\n배운 근거: '+reason+'\n감수할 부담: '+tradeoff+'\n검증 방법: '+metric;
+});
+document.querySelectorAll('[data-vote]').forEach(button=>button.addEventListener('click',()=>{
+ const base=document.getElementById('proposal-base');if(base)base.selectedIndex=button.dataset.vote==='A'?0:1;
+}));
+
+
