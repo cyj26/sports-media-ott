@@ -1,6 +1,6 @@
 const slides=[...document.querySelectorAll('.slide')], chapter=document.querySelector('#chapter');let current=0;
 slides.forEach((s,i)=>{const o=document.createElement('option');o.value=i;o.textContent=String(i+1).padStart(2,'0')+' '+s.dataset.title;chapter.append(o);s.insertAdjacentHTML('afterbegin',`<span class="page-no">${String(i+1).padStart(2,'0')} / ${slides.length}</span>`)});
-function go(i){i=Math.max(0,Math.min(slides.length-1,i));slides[i].scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});history.replaceState(null,'','#'+slides[i].id)}
+function go(i){i=Math.max(0,Math.min(slides.length-1,i));slides[i].scrollIntoView({behavior:'instant'});history.replaceState(null,'','#'+slides[i].id)}
 document.querySelector('#prev').onclick=()=>go(current-1);document.querySelector('#next').onclick=()=>go(current+1);chapter.onchange=()=>go(+chapter.value);
 function sync(){let best=0;slides.forEach((s,i)=>{if(s.getBoundingClientRect().top<innerHeight*.4)best=i});current=best;chapter.value=current;document.querySelector('#counter').textContent=String(current+1).padStart(2,'0')+' / '+slides.length;document.querySelector('#progress').style.width=((current+1)/slides.length*100)+'%';document.querySelector('#prev').disabled=current===0;document.querySelector('#next').disabled=current===slides.length-1}
 addEventListener('scroll',sync,{passive:true});sync();new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('reveal')}),{threshold:.12}).observe(slides[0]);const observer=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('reveal')}),{threshold:.12});slides.slice(1).forEach(s=>observer.observe(s));
@@ -13,3 +13,4 @@ function calc(){let rights=+document.querySelector('#rights').value,margin=+docu
 document.querySelectorAll('[data-lag]').forEach(b=>b.onclick=()=>{document.querySelector('#lag-result').textContent=b.dataset.lag==='fast'?'지연 3초 가정: 알림보다 먼저 볼 가능성이 커지지만, 짧은 버퍼는 네트워크 흔들림에 더 민감할 수 있습니다.':'지연 25초 가정: 재생 여유는 생기지만, 친구의 “골!” 메시지가 영상보다 먼저 도착할 수 있습니다.'});
 document.querySelector('#discussion').onclick=()=>{document.querySelector('#discussion-guide').hidden=!document.querySelector('#discussion-guide').hidden};
 document.querySelectorAll('a[href="#sources"]').forEach(a=>a.addEventListener('click',()=>{document.querySelector('#sources').open=true}));
+
