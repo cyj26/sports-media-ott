@@ -168,3 +168,24 @@ button{transition:background .2s,color .2s,transform .2s}button:hover{transform:
 @media(max-width:680px){header button,.transport button,.case-switch button,.image-expand{min-height:44px}.transport #prev,.transport #next{min-width:40px}.case-summary{font-size:12px}.case-summary td,.case-summary th{padding:8px}.reading .stage{min-height:0}.reading .evidence-image{height:auto;min-height:180px}.reading .evidence-image img{height:auto}.compact-evidence .image-reading{font-size:14px!important}}
 @media print{.js:not(.reading) .case-summary,.case-summary{display:table!important;font-size:12px}.case-summary th,.case-summary caption{color:black}.case-summary{break-inside:avoid}.evidence-image{height:220px!important;flex:none}.dark .slide-content{gap:18px}.image-reading{font-size:12px!important}}
 @media(max-width:680px){:root{--stage-top:112px}.slide-meta{top:84px}.cover .slide-meta,.photo-scene .slide-meta{top:84px}.cover-top{top:120px}}
+/* Continuous media motion, separate from one-time entrance transitions. */
+@keyframes mediaDrift{0%{transform:translate(-.8%,1%) scale(.85)}50%{transform:translate(.8%,-1%) scale(.98)}100%{transform:translate(-.4%,.5%) scale(.9)}}
+.slide.active .evidence-image>img,.slide.active .tall-photo img{animation:mediaDrift 10s ease-in-out infinite;transform-origin:center;will-change:transform}
+.motion-off .slide.active .evidence-image>img,.motion-off .slide.active .tall-photo img{animation:mediaDrift 10s ease-in-out infinite!important;animation-play-state:paused!important}
+body:has(dialog[open]) .slide.active .evidence-image>img{animation-play-state:paused}
+.reading .evidence-image>img{animation:none;transform:none}
+.evidence-image{isolation:isolate;background:radial-gradient(ellipse at center,#243525,#080d10 80%)}
+.evidence-image:after{z-index:2}.image-expand{z-index:4}.service-demo{display:block;width:100%;height:100%;object-fit:contain;background:#080d10}
+.demo-toggle{position:absolute;right:10px;bottom:10px;z-index:4;background:#111b13ed;color:var(--mint);padding:9px 13px;font-size:12px}
+.demo-badge{position:absolute;left:10px;bottom:12px;z-index:3;background:#111b13ed;color:var(--mint);padding:6px 10px;font-size:10px}
+@keyframes orbitSpin{to{transform:rotate(360deg)}}
+.course-orbit{position:relative;display:grid!important;place-items:center;overflow:hidden;background:radial-gradient(ellipse at center,#30442a,#161b13 70%);border:1px solid var(--rule)}
+.course-orbit>strong{font:clamp(55px,10svh,120px)/1 'Anton';color:var(--mint);z-index:1;text-align:center}
+.orbit-ring{position:absolute;width:72%;aspect-ratio:1;border:2px dashed var(--sage);border-radius:50%;animation:orbitSpin 35s linear infinite}
+.course-orbit>span{position:absolute;background:var(--ink);padding:10px 18px;font-size:18px;color:var(--mint);border:1px solid var(--sage);z-index:2}.course-orbit>span:nth-of-type(1){left:8%;top:12%}.course-orbit>span:nth-of-type(2){right:7%;top:23%}.course-orbit>span:nth-of-type(3){left:7%;bottom:23%}.course-orbit>span:nth-of-type(4){right:9%;bottom:10%}
+.closing-stage{height:100%;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;position:relative;overflow:hidden}
+.closing-stage:before{content:'';position:absolute;width:70%;aspect-ratio:1;border:2px dashed var(--sage);border-radius:50%;right:-15%;top:10%;opacity:.2;animation:orbitSpin 40s linear infinite;pointer-events:none;z-index:-1}
+.closing-stage .display-word{font-size:clamp(60px,13svh,150px)}.closing-values{display:flex;gap:25px;color:var(--mint)}.closing-values span{border-top:1px solid var(--sage);padding:14px 30px;font-size:clamp(22px,3.5svh,38px)}
+@media(max-width:680px){.course-orbit{min-height:320px!important}.closing-stage{min-height:650px}.closing-stage .display-word{font-size:17vw}.closing-values{gap:10px}.closing-values span{padding:14px 15px;font-size:22px}.demo-badge{font-size:9px;padding:5px}.demo-toggle{font-size:10px;min-height:44px}.service-demo{min-height:190px}}
+@media(prefers-reduced-motion:reduce){.slide.active .evidence-image>img,.slide.active .tall-photo img,.orbit-ring,.closing-stage:before{animation:none!important;transform:none!important}}
+@media print{.evidence-image>img,.tall-photo img{animation:none!important;transform:none!important}.demo-toggle,.demo-badge{display:none}.course-orbit{min-height:300px}.closing-stage{min-height:600px}.service-demo{height:220px}}
