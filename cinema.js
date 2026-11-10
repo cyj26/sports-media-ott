@@ -79,6 +79,6 @@ document.querySelectorAll('[data-vote]').forEach(button=>button.addEventListener
 
 // Stop embedded playback when its stage is left; changing the source reloads the official player.
 const ottFrame=document.querySelector('.ott-watch-video');
-function stopInactiveOtt(){if(ottFrame && (!document.querySelector('#s4').classList.contains('active')||document.querySelector('#delivery-3').hidden)) {const source=ottFrame.getAttribute('src');if(source) {ottFrame.dataset.videoSource=source;ottFrame.removeAttribute('src');}}else if(ottFrame&&!ottFrame.getAttribute('src'))ottFrame.setAttribute('src',ottFrame.dataset.videoSource||'https://www.youtube-nocookie.com/embed/sRUinRyJP-s?rel=0');}
+function stopInactiveOtt(){if(ottFrame && (!document.querySelector('#s5').classList.contains('active')||document.querySelector('#delivery-3').hidden)) {const source=ottFrame.getAttribute('src');if(source) {ottFrame.dataset.videoSource=source;ottFrame.removeAttribute('src');}}else if(ottFrame&&!ottFrame.getAttribute('src'))ottFrame.setAttribute('src',ottFrame.dataset.videoSource||'https://www.youtube-nocookie.com/embed/sRUinRyJP-s?rel=0');}
 document.addEventListener('lecturechange',stopInactiveOtt);document.querySelectorAll('#delivery [data-panel]').forEach(b=>b.addEventListener('click',stopInactiveOtt));stopInactiveOtt();
 
